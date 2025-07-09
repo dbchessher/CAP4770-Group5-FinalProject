@@ -1,0 +1,4 @@
+Run these commands in a Bash terminal to ensure environment is prepared:
+
+chmod +x setup.sh
+./setup.sh
