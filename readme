@@ -1,4 +1,100 @@
-Run these commands in a Bash terminal to ensure environment is prepared:
+# Mushroom Classification Project
 
-chmod +x setup.sh
-./setup.sh
+This project uses the UCI Mushroom Dataset to classify mushrooms as **edible** or **poisonous** using interpretable machine learning. The pipeline includes Decision Tree, SuperTree, and Random Forest models, an interactive Sunburst visualization, and baseline evaluations with Information Gain for key feature analysis.
+
+---
+
+## Project Structure
+
+```
+source_code/
+├── data/                        # Downloads live from UCI
+│   └── agaricus-lepiota.data
+│   └── agaricus-lepiota.names
+├── visuals/                     # Output visualizations and metrics
+│   ├── decision_tree.png
+│   ├── super_tree.png
+│   ├── random_forest_importance.png
+│   ├── sunburst_chart.html
+│   └── baseline_results.txt
+├── mushroom_preprocess.py       # Downloads dataset
+├── mushroom_cleaning.py         # Cleans and encodes data
+├── decision_tree.py             # Builds and visualizes Decision Tree
+├── super_tree.py                # Builds and visualizes a deeper "SuperTree"
+├── random_forest.py             # Builds and visualizes Random Forest
+├── sunburst.py                  # Creates interactive Sunburst chart
+├── calculate_information_gain.py# Computes Information Gain per feature
+├── baseline.py                  # Compares model performance and writes report
+└── main.py                      # Orchestrates the full pipeline
+```
+
+---
+
+## Setup Instructions (Linux)
+
+```bash
+# 1. Update packages
+sudo apt update
+
+# 2. Install Python if needed
+sudo apt install python3 python3-pip -y
+
+# 3. (Optional) Create a virtual environment
+python3 -m venv venv
+source venv/bin/activate
+
+# 4. Install required libraries
+pip install pandas matplotlib seaborn scikit-learn plotly requests
+```
+
+---
+
+## How to Run
+
+```bash
+cd source_code
+python main.py
+```
+
+This will:
+1. Download the mushroom dataset from UCI
+2. Clean and encode the data
+3. Train and visualize a Decision Tree
+4. Train and visualize a deeper SuperTree
+5. Train and visualize a Random Forest
+6. Generate a Sunburst chart of key features
+7. Evaluate all models against a majority-class baseline
+8. Calculate and include Information Gain for key features
+9. Save all visualizations to `source_code/visuals/`
+
+---
+
+## Output Files
+
+- `decision_tree.png`: Interpretable classification tree
+- `super_tree.png`: Full-depth SuperTree diagram
+- `random_forest_importance.png`: Feature importance bar plot
+- `sunburst_chart.html`: Interactive multivariate visualization
+- `baseline_results.txt`: Accuracy, AUC, and Information Gain summary for all models
+
+---
+
+## Insights Provided
+
+- Which features (e.g., odor, gill-spacing) most impact classification
+- How simpler vs. complex models perform comparatively
+- Model performance improvements vs. baseline
+- Top 5 features ranked by Information Gain
+
+---
+
+## Requirements Recap
+
+- Python 3.7+
+- Required packages:
+  - `pandas`
+  - `matplotlib`
+  - `seaborn`
+  - `scikit-learn`
+  - `plotly`
+  - `requests`
