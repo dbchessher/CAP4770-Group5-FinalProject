@@ -87,6 +87,8 @@ def information_gain(data: pd.DataFrame, attribute_index: int, class_index: int 
         weight = len(subset) / len(data)
         weighted_entropy += weight * entropy(subset, class_index)
 
+    print("Attribute: ", data.columns[attribute_index], "\n\tGain = ", round(total_entropy - weighted_entropy, 3))
+
     return total_entropy - weighted_entropy
 
 
@@ -104,6 +106,8 @@ def pick_best_attribute(data: pd.DataFrame, attributes: List[str] = None) -> str
         if gain > best_gain:
             best_gain = gain
             best_attr = attr
+
+    print("================= BEST ATTR", best_attr, "========================")
 
     return best_attr
 
@@ -249,7 +253,180 @@ attributes = [k for k in data_named if k != "edibility"]
 tree = id3(data_named, attributes, label_col='edibility')
 print_tree(tree)
 
+# ====== Results ================================================================================================
 """
+Attribute:  cap_shape 
+	Gain =  0.049
+Attribute:  cap_surface 
+	Gain =  0.029
+Attribute:  cap_color 
+	Gain =  0.036
+Attribute:  bruises 
+	Gain =  0.192
+Attribute:  odor 
+	Gain =  0.906
+Attribute:  gill_attachment 
+	Gain =  0.014
+Attribute:  gill_spacing 
+	Gain =  0.101
+Attribute:  gill_size 
+	Gain =  0.23
+Attribute:  gill_color 
+	Gain =  0.417
+Attribute:  stalk_shape 
+	Gain =  0.008
+Attribute:  stalk_root 
+	Gain =  0.4
+Attribute:  stalk_surface_above_ring 
+	Gain =  0.285
+Attribute:  stalk_surface_below_ring 
+	Gain =  0.272
+Attribute:  stalk_color_above_ring 
+	Gain =  0.254
+Attribute:  stalk_color_below_ring 
+	Gain =  0.241
+Attribute:  veil_type 
+	Gain =  0.0
+Attribute:  veil_color 
+	Gain =  0.024
+Attribute:  ring_number 
+	Gain =  0.038
+Attribute:  ring_type 
+	Gain =  0.318
+Attribute:  spore_print_color 
+	Gain =  0.481
+Attribute:  population 
+	Gain =  0.202
+Attribute:  habitat 
+	Gain =  0.157
+================= BEST ATTR odor ========================
+Attribute:  cap_shape 
+	Gain =  0.043
+Attribute:  cap_surface 
+	Gain =  0.016
+Attribute:  cap_color 
+	Gain =  0.094
+Attribute:  bruises 
+	Gain =  0.001
+Attribute:  gill_attachment 
+	Gain =  0.003
+Attribute:  gill_spacing 
+	Gain =  0.005
+Attribute:  gill_size 
+	Gain =  0.023
+Attribute:  gill_color 
+	Gain =  0.086
+Attribute:  stalk_shape 
+	Gain =  0.062
+Attribute:  stalk_root 
+	Gain =  0.078
+Attribute:  stalk_surface_above_ring 
+	Gain =  0.024
+Attribute:  stalk_surface_below_ring 
+	Gain =  0.051
+Attribute:  stalk_color_above_ring 
+	Gain =  0.036
+Attribute:  stalk_color_below_ring 
+	Gain =  0.061
+Attribute:  veil_type 
+	Gain =  0.0
+Attribute:  veil_color 
+	Gain =  0.014
+Attribute:  ring_number 
+	Gain =  0.024
+Attribute:  ring_type 
+	Gain =  0.001
+Attribute:  spore_print_color 
+	Gain =  0.145
+Attribute:  population 
+	Gain =  0.044
+Attribute:  habitat 
+	Gain =  0.059
+================= BEST ATTR spore_print_color ========================
+Attribute:  cap_shape 
+	Gain =  0.033
+Attribute:  cap_surface 
+	Gain =  0.089
+Attribute:  cap_color 
+	Gain =  0.213
+Attribute:  bruises 
+	Gain =  0.012
+Attribute:  gill_attachment 
+	Gain =  0.0
+Attribute:  gill_spacing 
+	Gain =  0.013
+Attribute:  gill_size 
+	Gain =  0.237
+Attribute:  gill_color 
+	Gain =  0.091
+Attribute:  stalk_shape 
+	Gain =  0.0
+Attribute:  stalk_root 
+	Gain =  0.326
+Attribute:  stalk_surface_above_ring 
+	Gain =  0.072
+Attribute:  stalk_surface_below_ring 
+	Gain =  0.223
+Attribute:  stalk_color_above_ring 
+	Gain =  0.068
+Attribute:  stalk_color_below_ring 
+	Gain =  0.207
+Attribute:  veil_type 
+	Gain =  0.0
+Attribute:  veil_color 
+	Gain =  0.049
+Attribute:  ring_number 
+	Gain =  0.237
+Attribute:  ring_type 
+	Gain =  0.038
+Attribute:  population 
+	Gain =  0.12
+Attribute:  habitat 
+	Gain =  0.262
+================= BEST ATTR stalk_root ========================
+Attribute:  cap_shape 
+	Gain =  0.137
+Attribute:  cap_surface 
+	Gain =  0.196
+Attribute:  cap_color 
+	Gain =  0.391
+Attribute:  bruises 
+	Gain =  0.114
+Attribute:  gill_attachment 
+	Gain =  0.0
+Attribute:  gill_spacing 
+	Gain =  0.073
+Attribute:  gill_size 
+	Gain =  0.073
+Attribute:  gill_color 
+	Gain =  0.0
+Attribute:  stalk_shape 
+	Gain =  0.0
+Attribute:  stalk_surface_above_ring 
+	Gain =  0.057
+Attribute:  stalk_surface_below_ring 
+	Gain =  0.057
+Attribute:  stalk_color_above_ring 
+	Gain =  0.019
+Attribute:  stalk_color_below_ring 
+	Gain =  0.114
+Attribute:  veil_type 
+	Gain =  0.0
+Attribute:  veil_color 
+	Gain =  0.0
+Attribute:  ring_number 
+	Gain =  0.073
+Attribute:  ring_type 
+	Gain =  0.073
+Attribute:  population 
+	Gain =  0.391
+Attribute:  habitat 
+	Gain =  0.073
+================= BEST ATTR cap_color ========================
+"""
+
+"""
+================= Decision Tree =================
 -(odor)
     ├┬[almond]?
     | └──>edible
