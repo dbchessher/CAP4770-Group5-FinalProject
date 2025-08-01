@@ -1,4 +1,4 @@
-# src/models/decision_tree.py
+# decision_tree.py
 import os
 import matplotlib.pyplot as plt
 from sklearn.tree import DecisionTreeClassifier, plot_tree

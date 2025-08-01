@@ -1,4 +1,4 @@
-# source_code/random_forest.py
+# random_forest.py
 import os
 import matplotlib.pyplot as plt
 import seaborn as sns

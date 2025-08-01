@@ -1,4 +1,4 @@
-# source_code/super_tree.py
+# super_tree.py
 import os
 import matplotlib.pyplot as plt
 from sklearn.tree import DecisionTreeClassifier, plot_tree

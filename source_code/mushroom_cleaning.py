@@ -1,4 +1,4 @@
-# src/models/mushroom_cleaning.py
+# mushroom_cleaning.py
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder
 
