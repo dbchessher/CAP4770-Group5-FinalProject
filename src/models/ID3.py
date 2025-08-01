@@ -87,6 +87,8 @@ def information_gain(data: pd.DataFrame, attribute_index: int, class_index: int 
         weight = len(subset) / len(data)
         weighted_entropy += weight * entropy(subset, class_index)
 
+    print("Attribute: ", data.columns[attribute_index], "\n\tGain = ", round(total_entropy - weighted_entropy, 3))
+
     return total_entropy - weighted_entropy
 
 
@@ -104,6 +106,8 @@ def pick_best_attribute(data: pd.DataFrame, attributes: List[str] = None) -> str
         if gain > best_gain:
             best_gain = gain
             best_attr = attr
+
+    print("================= BEST ATTR", best_attr, "========================")
 
     return best_attr
 
